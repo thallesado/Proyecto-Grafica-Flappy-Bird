@@ -1,0 +1,9 @@
+com\graphics\core\EstadoJuego.class
+com\graphics\model\Tuberia.class
+com\graphics\render\TextureLoader.class
+com\graphics\render\TextRenderer.class
+com\graphics\core\Config.class
+com\graphics\model\Pajaro.class
+com\graphics\render\Renderer.class
+com\graphics\core\Game.class
+com\graphics\AppFlappyBird.class

@@ -1,0 +1,146 @@
+<!--
+  =============================================================================
+  POM = Project Object Model (archivo de configuración de Maven)
+  =============================================================================
+  Configuración ajustada para Windows.
+  Comandos útiles:
+    mvn compile
+    mvn exec:exec
+    mvn clean compile exec:exec
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.graphics</groupId>
+  <artifactId>opengl-java-class</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>opengl-java-class</name>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <lwjgl.version>3.3.3</lwjgl.version>
+
+    <!-- Clase principal del Flappy Bird -->
+    <mainClass>com.graphics.AppFlappyBird</mainClass>
+  </properties>
+
+  <dependencies>
+    <!-- Tests -->
+    <dependency>
+  <groupId>org.lwjgl</groupId>
+  <artifactId>lwjgl-nanovg</artifactId>
+  <version>${lwjgl.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.lwjgl</groupId>
+  <artifactId>lwjgl-nanovg</artifactId>
+  <version>${lwjgl.version}</version>
+  <classifier>natives-windows</classifier>
+</dependency>
+    <dependency>
+  <groupId>org.lwjgl</groupId>
+  <artifactId>lwjgl-stb</artifactId>
+  <version>${lwjgl.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.lwjgl</groupId>
+  <artifactId>lwjgl-stb</artifactId>
+  <version>${lwjgl.version}</version>
+  <classifier>natives-windows</classifier>
+</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- LWJGL base -->
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl</artifactId>
+      <version>${lwjgl.version}</version>
+    </dependency>
+
+    <!-- GLFW: ventana, teclado, mouse -->
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-glfw</artifactId>
+      <version>${lwjgl.version}</version>
+    </dependency>
+
+    <!-- OpenGL -->
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-opengl</artifactId>
+      <version>${lwjgl.version}</version>
+    </dependency>
+
+    <!-- Natives para Windows -->
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl</artifactId>
+      <version>${lwjgl.version}</version>
+      <classifier>natives-windows</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-glfw</artifactId>
+      <version>${lwjgl.version}</version>
+      <classifier>natives-windows</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-opengl</artifactId>
+      <version>${lwjgl.version}</version>
+      <classifier>natives-windows</classifier>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Compilador Java 17 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+          <release>17</release>
+        </configuration>
+      </plugin>
+
+      <!-- Ejecutar la aplicación con mvn exec:java -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>run-game</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+          <classpathScope>compile</classpathScope>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  
+</project>
